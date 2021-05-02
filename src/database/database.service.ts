@@ -4,6 +4,11 @@ import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { ConnectionOptions } from 'typeorm'
 import { join } from 'path'
+import { User } from '../module/user/user.entity';
+import { UserDetail } from '../module/user/user.details.entity';
+import { Role } from '../module/role/role.entity';
+import { Product } from '../module/product/product.entity';
+import { Category } from '../module/category/category.entity';
 
 export const databaseProviders = [
 
@@ -11,7 +16,7 @@ export const databaseProviders = [
         imports: [ConfigModule],
         inject: [ConfigService],
         async useFactory(confi: ConfigService) {
-            return { 
+            return {
                 //ssl: true, 
                 type: 'postgres' as 'postgres',
                 host: confi.get(ConfigurationEnum.HOST),
@@ -19,7 +24,8 @@ export const databaseProviders = [
                 port: parseInt(confi.get(ConfigurationEnum.DATABASE_PORT)),
                 database: confi.get(ConfigurationEnum.DATABASE),
                 password: confi.get(ConfigurationEnum.PASSWORD),
-                entities: [join(__dirname + '/../**/*.entity{.ts,.js}')],
+                entities: [User, UserDetail, Role, Product, Category],
+                //entities: [join(__dirname + '/../**/*.entity{.ts,.js}')],
                 migrations: [join(__dirname + '/migrations/*{.ts,.js}')],
             } as ConnectionOptions
         }
