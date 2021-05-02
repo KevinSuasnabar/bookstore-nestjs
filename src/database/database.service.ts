@@ -15,7 +15,7 @@ export const databaseProviders = [
                 type: 'postgres' as 'postgres',
                 host: confi.get(ConfigurationEnum.HOST),
                 username: confi.get(ConfigurationEnum.USERNAME),
-                port: 5434,
+                port: parseInt(confi.get(ConfigurationEnum.DATABASE_PORT)),
                 database: confi.get(ConfigurationEnum.DATABASE),
                 password: confi.get(ConfigurationEnum.PASSWORD),
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
