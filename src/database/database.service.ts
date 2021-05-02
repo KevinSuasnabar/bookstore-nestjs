@@ -3,6 +3,7 @@ import { ConfigurationEnum } from '../config/config.keys'
 import { ConfigModule } from '../config/config.module'
 import { ConfigService } from '../config/config.service'
 import { ConnectionOptions } from 'typeorm'
+import { join } from 'path'
 
 export const databaseProviders = [
 
@@ -18,8 +19,8 @@ export const databaseProviders = [
                 port: parseInt(confi.get(ConfigurationEnum.DATABASE_PORT)),
                 database: confi.get(ConfigurationEnum.DATABASE),
                 password: confi.get(ConfigurationEnum.PASSWORD),
-                entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-                migrations: [__dirname + '/migrations/*{.ts,.js}'],
+                entities: [join(__dirname + '/../**/*.entity{.ts,.js}')],
+                migrations: [join(__dirname + '/migrations/*{.ts,.js}')],
             } as ConnectionOptions
         }
 
