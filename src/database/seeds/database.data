@@ -1,0 +1,133 @@
+INSERT INTO public.user_details(
+	id,name,lastname,status,create_at,update_at)
+	VALUES (1,'kevin','Suasnabar','ACTIVE',now(),now());
+INSERT INTO public.user_details(
+	id,name,lastname,status,create_at,update_at)
+	VALUES (2,'keia','Suazo','ACTIVE',now(),now());
+
+INSERT INTO public.roles(
+	id, name, description, status, create_at, update_at)
+	VALUES (1, 'GENERAL', 'Rol general', 'ACTIVE',  now(),now());
+	
+INSERT INTO public.roles(
+	id, name, description, status, create_at, update_at)
+	VALUES (2, 'ADMIN', 'Rol admin', 'ACTIVE',  now(),now());	
+
+INSERT INTO public.users(
+	id, username, email, status, create_at, update_at, detail_id, password)
+	VALUES (1, 'kevin','kevin@mail.com', 'ACTIVE', now(),now(), 1, '$2a$10$F7ONFwocDFgQ5Gad6WjhVOJVgLwSrW121.SX.Ej22CQqPjXo3Es1S');
+
+INSERT INTO public.users(
+	id, username, email, status, create_at, update_at, detail_id, password)
+	VALUES (2, 'keia','keia@mail.com', 'ACTIVE', now(),now(), 2, '$2a$10$F7ONFwocDFgQ5Gad6WjhVOJVgLwSrW121.SX.Ej22CQqPjXo3Es1S');
+
+INSERT INTO public.user_roles(
+	"usersId", "rolesId")
+	VALUES (1, 1);
+
+INSERT INTO public.user_roles(
+	"usersId", "rolesId")
+	VALUES (1, 2);
+
+INSERT INTO public.user_roles(
+	"usersId", "rolesId")
+	VALUES (2, 1);
+	
+INSERT INTO public.categories(
+	id, name, status, create_at, update_at)
+	VALUES (1, 'Comestibles', 'ACTIVE', now(), now());
+
+INSERT INTO public.categories(
+	id, name, status, create_at, update_at)
+	VALUES (2, 'Bebidas', 'ACTIVE', now(), now());
+	
+/**comestibles*/
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (1, 'Galleta ritz', 10.50, 'ACTIVE', now(), now(), 1);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (2, 'Rellenitas', 0.50, 'ACTIVE', now(), now(), 1);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (3, 'Vicio', 1.00, 'ACTIVE', now(), now(), 1);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (4, 'Piqueos', 11.50, 'ACTIVE', now(), now(), 1);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (5, 'Doritos', 9.00, 'ACTIVE', now(), now(), 1);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (6, 'Sublime', 2.00, 'ACTIVE', now(), now(), 1);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (7, 'Blackout', 2.50, 'ACTIVE', now(), now(), 1);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (8, 'Chisitos',0.70 , 'ACTIVE', now(), now(), 1);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (9, 'Ganzito', 2.60, 'ACTIVE', now(), now(), 1);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (10, 'Papitas', 0.80, 'ACTIVE', now(), now(), 1);	
+	
+	
+/**bebidas*/
+		
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (11, 'Inca kola', 6.90, 'ACTIVE', now(), now(), 2);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (12, 'Coca cola', 6.20, 'ACTIVE', now(), now(),2);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (13, 'Pepsi', 5.55, 'ACTIVE', now(), now(), 2);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (14, 'KR', 11.80, 'ACTIVE', now(), now(), 2);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (15, 'Agua Cielo', 2.75, 'ACTIVE', now(), now(), 2);
+
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (16, 'Redbull', 3.20, 'ACTIVE', now(), now(), 2);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (17, 'Yogurt Gloria', 4.50, 'ACTIVE', now(), now(), 2);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (18, 'Yogurt laive',1.90 , 'ACTIVE', now(), now(), 2);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (19, 'Sporade', 1.60, 'ACTIVE', now(), now(), 2);
+	
+INSERT INTO public.products(
+	id, name, price, status, create_at, update_at, "categoryId")
+	VALUES (20, 'Paworade', 1.50, 'ACTIVE', now(), now(), 2);	
+	
+	ALTER SEQUENCE categories_id_seq RESTART WITH 1;
+	ALTER SEQUENCE products_id_seq RESTART WITH 1;
+	ALTER SEQUENCE roles_id_seq RESTART WITH 1;
+	ALTER SEQUENCE user_details_id_seq RESTART WITH 1;
+	ALTER SEQUENCE users_id_seq RESTART WITH 1;
